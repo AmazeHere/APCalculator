@@ -1,0 +1,38 @@
+name: Build C++ Console App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: actions/setup-cmake@v1
+      with:
+        cmake-version: '3.21'
+
+    - name: Build for Windows
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+
+    - name: Install Xcode
+      if: runner.os == 'macOS'
+      run: sudo xcode-select --install
+
+    - name: Build for macOS
+      if: runner.os == 'macOS'
+      run: |
+        mkdir build_mac
+        cd build_mac
+        cmake ..
+        cmake --build .
