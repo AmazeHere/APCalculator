@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -60,3 +61,5 @@ int main() {
 
     return 0;
 }
+
+// dont use this , this shit dosent properly work ill fix later
