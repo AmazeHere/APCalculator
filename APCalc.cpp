@@ -1,8 +1,10 @@
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
 
 int main() {
+    SetConsoleTitleA("APCalc");
     int choice;
     cout << "Choose a formula:\n";
     cout << "1. General Forumla\n";
